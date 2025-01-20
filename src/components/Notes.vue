@@ -13,7 +13,7 @@
             <ul>
                 <li v-for="note in notesdb" :key="note.id" class="note">
                     <p class="note-title">{{ note.note_title }}</p>
-                    <p class="note-snippet">{{ note.note_text.length > 200 ? note.note_text.substring(0, 200) + ' ...' : note.note_text }}</p>
+                    <p class="note-snippet" v-html="note.note_text.length > 200 ? note.note_text.substring(0, 200) + ' ...' : note.note_text"></p>
                     <p class="note-metadata"><span><i class="pi pi-calendar-clock"></i></span>{{ note.note_timestamp }}</p>
                     <router-link class="note-link" :to="{ name: 'Note', params: { id: note.id } }">View More</router-link>
                 </li>
