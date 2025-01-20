@@ -1,10 +1,10 @@
 <template>
     <form @submit.prevent="handleSubmission">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" v-model="note_title"><br><br>
+        <input type="text" id="title" name="title" v-model="note_title" required><br><br>
 
         <label for="body">Enter your note:</label><br>
-        <textarea id="body" name="body" rows="6" cols="50" v-model="note_text">
+        <textarea id="body" name="body" rows="6" cols="50" v-model="note_text" required>
 
         </textarea><br>
 
