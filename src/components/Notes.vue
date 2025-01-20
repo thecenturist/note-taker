@@ -14,7 +14,7 @@
                 <li v-for="note in notesdb" :key="note.id" class="note">
                     <p class="note-title">{{ note.note_title }}</p>
                     <p class="note-snippet">{{ note.note_text.length > 200 ? note.note_text.substring(0, 200) + ' ...' : note.note_text }}</p>
-                    <p class="note-metadata">{{ note.note_timestamp }}</p>
+                    <p class="note-metadata"><span><i class="pi pi-calendar-clock"></i></span>{{ note.note_timestamp }}</p>
                     <router-link class="note-link" :to="{ name: 'Note', params: { id: note.id } }">View More</router-link>
                 </li>
             </ul>
@@ -55,7 +55,16 @@ const CreateNoteEvent = (title, text) => {
         id: notesdb.value.length + 1,
         note_title: title,
         note_text: text,
-        note_timestamp: new Date().toString()
+        note_timestamp: new Date().toLocaleString('en-US', {
+            weekday: 'short', // Mon
+            month: 'short',   // Jan
+            day: '2-digit',   // 20
+            year: 'numeric',  // 2025
+            hour: '2-digit',  // 12
+            minute: '2-digit',// 33
+            second: '2-digit',// 34
+            hour12: true      // AM/PM
+        })
     }
     notesdb.value.unshift(newNote)
     localStorage.setItem('notes', JSON.stringify(notesdb.value))
@@ -76,6 +85,10 @@ const CreateNoteEvent = (title, text) => {
 .notes-list ul li {
     margin-bottom: 10px;
     list-style: none;
+    background: #F8F8F8;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px 10px;
 }
 .notes-list ul li p {
     margin-bottom: 10px;
@@ -90,6 +103,9 @@ const CreateNoteEvent = (title, text) => {
     cursor: pointer;
     color: #9D00FF;
 }
+.note-metadata {
+    font-size: 13px;
+}
 .create-btn {
     margin: 10px 10px;
     /* width: 100%; */
@@ -103,5 +119,8 @@ const CreateNoteEvent = (title, text) => {
 .create-btn:hover {
     background: black;
     color: white;
+}
+.pi-calendar-clock {
+    margin-right: 5px;
 }
 </style>
