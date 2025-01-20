@@ -9,7 +9,7 @@ A simple note-taking application built with Vue.js. This app allows users to cre
 * Local Storage: Notes are temporarily stored in the browser's local storage. The notes will be cleared after a page refresh or browser restart.
 
 ## Screenshots
-![Screenshot_One] (notes-app-shot.png)
+![Screenshot_One](notes-app-shot.png)
 
 ## Installation
 1. Clone the repository:
