@@ -11,7 +11,7 @@ A simple note-taking application built with Vue.js. This app allows users to cre
 ## Screenshots
 
 ## Installation
-1. Clone the repository.
+1. Clone the repository:
 `git clone https://github.com/thecenturist/note-taker.git`
 2. Navigate to the project directory:
 `cd note-taker`
