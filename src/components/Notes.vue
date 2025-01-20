@@ -13,9 +13,9 @@
             <ul>
                 <li v-for="note in notesdb" :key="note.id" class="note">
                     <p class="note-title">{{ note.note_title }}</p>
-                    <!-- <p class="note-snippet">{{ note.note_text.length > 50 ? note.note_text.substring(0, 50) + ' ...' : note.note_text }}</p> -->
+                    <p class="note-snippet">{{ note.note_text.length > 50 ? note.note_text.substring(0, 50) + ' ...' : note.note_text }}</p>
                     <p class="note-metadata">{{ note.note_timestamp }}</p>
-                    <a class="note-link" :href="'/note/' + note.id">View More</a>
+                    <router-link class="note-link" :to="{ name: 'Note', params: { id: note.id } }">View More</router-link>
                 </li>
             </ul>
         </div>
@@ -26,13 +26,16 @@
 import notes from '../../notes.js'
 import { ref, onMounted } from 'vue'
 import CreateNote from './CreateNote.vue'
+import { useToast } from 'vue-toastification'
 
 const isVisible = ref(false)
 let notesdb = ref([])
 const btnText = ref('Create New Note')
+const toast = useToast()
 
 onMounted(() => {
-    const savedNotes = JSON.parse(localStorage.getItem('notes') || [])
+    
+    const savedNotes = JSON.parse(localStorage.getItem('notes'))
     if (savedNotes){
         notesdb.value = savedNotes
     }
@@ -56,6 +59,7 @@ const CreateNoteEvent = (title, text) => {
     }
     notesdb.value.unshift(newNote)
     localStorage.setItem('notes', JSON.stringify(notesdb.value))
+    toast.success("Note created")
 }
 
 </script>
@@ -71,6 +75,7 @@ const CreateNoteEvent = (title, text) => {
 }
 .notes-list ul li {
     margin-bottom: 10px;
+    list-style: none;
 }
 .notes-list ul li p {
     margin-bottom: 10px;

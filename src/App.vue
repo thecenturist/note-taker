@@ -7,11 +7,9 @@ import Notes from './components/Notes.vue'
 
 <template>
   <div class="header-section">
-    <p>Notes App</p>
+    <router-link to="/" custom><span>Notes App</span></router-link>
   </div>
-  <Search />
-  <Notes />
-  <!-- <NewNote /> -->
+   <router-view />
 </template>
 
 <style scoped>
@@ -20,7 +18,23 @@ import Notes from './components/Notes.vue'
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 28px;
-  margin: 10px 10px;
+  margin: 20px 10px;
   text-align: center;
 }
+
+.header-section span {
+  border: 1px solid;
+  border-radius: 50px;
+  padding: 10px 10px;
+  cursor: pointer;
+  background: black;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.header-section span:hover {
+  background: white;
+  color: black;
+}
+
 </style>
