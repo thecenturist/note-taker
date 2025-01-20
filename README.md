@@ -35,4 +35,4 @@ A simple note-taking application built with Vue.js. This app allows users to cre
 * **Local Storage**: For temporarily saving and loading notes in the browser.
 * **Event Handling**: Using Vue's event handling system (@click, @input) to manage user interactions.
 * **Conditional Rendering**: Using Vue's directives like v-if and v-for to conditionally render elements based on app state.
-* **Vue Directives**: Familiarity with directives like v-model, v-bind, v-for, v-if for dynamic rendering.
+* **Vue Directives**: Familiarity with directives like `v-model`, `v-bind`, `v-for`, `v-if` for dynamic rendering.
