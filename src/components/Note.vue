@@ -2,7 +2,7 @@
     <div class="note-view">
         <h1>{{ note.note_title }}</h1>
         <p class="note-timestamp">{{ note.note_timestamp }}</p>
-        <p>{{ note.note_text }}</p>
+        <p class="note-text" v-html="note.note_text"></p>
         <button class="delete-btn" v-on:click="deleteNote">
             <i class="pi pi-trash"></i>
             Delete
@@ -58,6 +58,9 @@ const deleteNote = () => {
 }
 .note-timestamp {
     color: #585858;
+}
+.note-text {
+    margin: 20px 0;
 }
 .delete-btn {
     /* width: 100%; */

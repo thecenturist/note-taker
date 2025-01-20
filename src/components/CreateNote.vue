@@ -19,7 +19,7 @@ const note_text = ref('')
 const emit = defineEmits(['CreateNewNote'])
 
 const handleSubmission = () => {
-    emit('CreateNewNote', note_title.value, note_text.value)
+    emit('CreateNewNote', note_title.value, note_text.value.replace(/\n/g, '<br/>'))
 
     note_title.value = ''
     note_text.value = ''
