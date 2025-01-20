@@ -2,12 +2,17 @@
 import Search from './components/Search.vue'
 import NewNote from './components/NewNote.vue'
 import Notes from './components/Notes.vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
+const goHome = () => {
+  router.push({ name: 'Notes' })
+}
 </script>
 
 <template>
   <div class="header-section">
-    <router-link to="/" custom><span>Notes App</span></router-link>
+    <span v-on:click="goHome">Notes App</span>
   </div>
    <router-view />
 </template>
